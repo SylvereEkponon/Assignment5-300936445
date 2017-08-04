@@ -35,13 +35,16 @@
             this.WeightLabel = new System.Windows.Forms.Label();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.WeightTextBox = new System.Windows.Forms.TextBox();
-            this.ResultLabel = new System.Windows.Forms.Label();
             this.resultTextBox = new System.Windows.Forms.TextBox();
             this.CalculateBMIButton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.HeightUnitLabel = new System.Windows.Forms.Label();
             this.WeightUnitLabel = new System.Windows.Forms.Label();
+            this.ResultLabel = new System.Windows.Forms.Label();
+            this.HeaderLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.Headerlabel = new System.Windows.Forms.Label();
             this.BMICalculatorLayoutPanel.SuspendLayout();
+            this.HeaderLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // BMICalculatorLayoutPanel
@@ -149,19 +152,6 @@
             this.WeightTextBox.Size = new System.Drawing.Size(87, 38);
             this.WeightTextBox.TabIndex = 7;
             // 
-            // ResultLabel
-            // 
-            this.ResultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResultLabel.AutoSize = true;
-            this.ResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResultLabel.Location = new System.Drawing.Point(35, 180);
-            this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(55, 60);
-            this.ResultLabel.TabIndex = 8;
-            this.ResultLabel.Text = "Result";
-            this.ResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // resultTextBox
             // 
             this.resultTextBox.BackColor = System.Drawing.Color.White;
@@ -177,9 +167,10 @@
             // 
             // CalculateBMIButton
             // 
-            this.CalculateBMIButton.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.CalculateBMIButton.BackColor = System.Drawing.Color.DimGray;
             this.BMICalculatorLayoutPanel.SetColumnSpan(this.CalculateBMIButton, 2);
             this.CalculateBMIButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalculateBMIButton.ForeColor = System.Drawing.Color.White;
             this.CalculateBMIButton.Location = new System.Drawing.Point(3, 243);
             this.CalculateBMIButton.Name = "CalculateBMIButton";
             this.CalculateBMIButton.Size = new System.Drawing.Size(180, 57);
@@ -189,8 +180,9 @@
             // 
             // ResetButton
             // 
-            this.ResetButton.BackColor = System.Drawing.Color.OrangeRed;
+            this.ResetButton.BackColor = System.Drawing.Color.DimGray;
             this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.ForeColor = System.Drawing.Color.White;
             this.ResetButton.Location = new System.Drawing.Point(189, 243);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(88, 57);
@@ -224,11 +216,50 @@
             this.WeightUnitLabel.Text = "LB";
             this.WeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ResultLabel
+            // 
+            this.ResultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultLabel.Location = new System.Drawing.Point(35, 180);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(55, 60);
+            this.ResultLabel.TabIndex = 8;
+            this.ResultLabel.Text = "Result";
+            this.ResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // HeaderLayoutPanel
+            // 
+            this.HeaderLayoutPanel.ColumnCount = 1;
+            this.HeaderLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.HeaderLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HeaderLayoutPanel.Controls.Add(this.Headerlabel, 0, 0);
+            this.HeaderLayoutPanel.Location = new System.Drawing.Point(12, 13);
+            this.HeaderLayoutPanel.Name = "HeaderLayoutPanel";
+            this.HeaderLayoutPanel.RowCount = 1;
+            this.HeaderLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.HeaderLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HeaderLayoutPanel.Size = new System.Drawing.Size(280, 42);
+            this.HeaderLayoutPanel.TabIndex = 1;
+            // 
+            // Headerlabel
+            // 
+            this.Headerlabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Headerlabel.AutoSize = true;
+            this.Headerlabel.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Headerlabel.Location = new System.Drawing.Point(20, 12);
+            this.Headerlabel.Name = "Headerlabel";
+            this.Headerlabel.Size = new System.Drawing.Size(239, 18);
+            this.Headerlabel.TabIndex = 0;
+            this.Headerlabel.Text = "Body Mass Index Calculator";
+            // 
             // BMICalculator
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(128)))), ((int)(((byte)(170)))));
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.HeaderLayoutPanel);
             this.Controls.Add(this.BMICalculatorLayoutPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -239,6 +270,8 @@
             this.Text = "BMI Calculator App";
             this.BMICalculatorLayoutPanel.ResumeLayout(false);
             this.BMICalculatorLayoutPanel.PerformLayout();
+            this.HeaderLayoutPanel.ResumeLayout(false);
+            this.HeaderLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -258,6 +291,8 @@
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Label HeightUnitLabel;
         private System.Windows.Forms.Label WeightUnitLabel;
+        private System.Windows.Forms.TableLayoutPanel HeaderLayoutPanel;
+        private System.Windows.Forms.Label Headerlabel;
     }
 }
 
