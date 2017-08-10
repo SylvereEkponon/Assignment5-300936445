@@ -14,17 +14,24 @@ using System.Windows.Forms;
 
 namespace Assignment5_300936445
 {
-    static class Program
+    public static class Program
     {
+        //Create Reference to BMICalculator
+        public static BMICalculator bmiCalculator;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculator());
+
+            // Instantiate a new object of type CalculatorForm
+            bmiCalculator = new BMICalculator();
+
+            Application.Run(new SpashScreen());
         }
     }
 }
