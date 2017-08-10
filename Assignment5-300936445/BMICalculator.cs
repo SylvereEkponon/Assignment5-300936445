@@ -13,8 +13,8 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.1 - Project was created
- */ 
+ * Version: 0.2 - created an event handler for the BMIcalculatorclosing
+ */
 
 namespace Assignment5_300936445
 {
@@ -23,6 +23,16 @@ namespace Assignment5_300936445
         public BMICalculator()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// This is an event handler for the BMIcalculatorclosing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
