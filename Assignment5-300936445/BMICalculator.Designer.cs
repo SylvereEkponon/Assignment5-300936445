@@ -91,6 +91,7 @@
             this.ImperialRadioButton.Text = "Imperial";
             this.ImperialRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
+            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
             // MetricRadioButton
             // 
@@ -107,6 +108,7 @@
             this.MetricRadioButton.Text = "Metric";
             this.MetricRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MetricRadioButton.UseVisualStyleBackColor = true;
+            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.MetricRadioButton_CheckedChanged);
             // 
             // HeightLabel
             // 
@@ -198,9 +200,9 @@
             this.HeightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeightUnitLabel.Location = new System.Drawing.Point(189, 60);
             this.HeightUnitLabel.Name = "HeightUnitLabel";
-            this.HeightUnitLabel.Size = new System.Drawing.Size(28, 60);
+            this.HeightUnitLabel.Size = new System.Drawing.Size(57, 60);
             this.HeightUnitLabel.TabIndex = 12;
-            this.HeightUnitLabel.Text = "FT";
+            this.HeightUnitLabel.Text = "Inches";
             this.HeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WeightUnitLabel
@@ -211,9 +213,9 @@
             this.WeightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeightUnitLabel.Location = new System.Drawing.Point(189, 120);
             this.WeightUnitLabel.Name = "WeightUnitLabel";
-            this.WeightUnitLabel.Size = new System.Drawing.Size(29, 60);
+            this.WeightUnitLabel.Size = new System.Drawing.Size(63, 60);
             this.WeightUnitLabel.TabIndex = 13;
-            this.WeightUnitLabel.Text = "LB";
+            this.WeightUnitLabel.Text = "Pounds";
             this.WeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ResultLabel
