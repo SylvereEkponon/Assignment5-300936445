@@ -13,7 +13,7 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.5 - Added the reset method which clears the form 
+ * Version: 0.7 - Added the CalculateBMIButton_Click method which clears the BNI calculation 
  */
 
 namespace Assignment5_300936445
@@ -71,7 +71,7 @@ namespace Assignment5_300936445
             }
         }
         /// <summary>
-        /// 
+        /// This is the private Calculate_BMI method
         /// </summary>
         /// <param name="height"></param>
         /// <param name="weight"></param>
@@ -80,12 +80,12 @@ namespace Assignment5_300936445
             if (MetricRadioButton.Checked)
             {
                 double result = weight / Math.Pow(height, 2);
-                resultTextBox.Text = Convert.ToString(result);
+                resultTextBox.Text = string.Format("{0:f}",result);
             }
             else
             {
                 double result = (weight*703) / Math.Pow(height, 2);
-                resultTextBox.Text = Convert.ToString(result);
+                resultTextBox.Text = string.Format("{0:f}", result);
             }
         }
 
@@ -141,6 +141,19 @@ namespace Assignment5_300936445
             HeightTextBox.Clear();
             WeightTextBox.Clear();
             resultTextBox.Clear();
+        }
+
+        /// <summary>
+        /// This is the CalculateBMIButton_Click method which performs the calculation 
+        /// whenever the calculate bmi button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculateBMIButton_Click(object sender, EventArgs e)
+        {
+            double height = double.Parse(HeightTextBox.Text);
+            double weight = double.Parse(WeightTextBox.Text);
+            Calculate_BMI(height, weight);
         }
     }
 }

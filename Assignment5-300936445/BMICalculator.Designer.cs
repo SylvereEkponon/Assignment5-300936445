@@ -181,6 +181,7 @@
             this.CalculateBMIButton.TabIndex = 10;
             this.CalculateBMIButton.Text = "Calculate BMI";
             this.CalculateBMIButton.UseVisualStyleBackColor = false;
+            this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
             // ResetButton
             // 
