@@ -13,7 +13,7 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.7 - Added the CalculateBMIButton_Click method which clears the BNI calculation 
+ * Version: 0.8 - Added the progress bar to the form and refactored the CalculateBMIButton_Click method 
  */
 
 namespace Assignment5_300936445
@@ -27,6 +27,21 @@ namespace Assignment5_300936445
         private const int NINE = 57;
         private const int NOT_FOUND = -1;
 
+        //PRIVATE INSTANCES VARIABLES
+        private double _result;
+
+        //PUBLIC PROPERTIES
+        public double RESULT
+        {
+            get
+            {
+                return this._result;
+            }
+            set
+            {
+                this._result = value;
+            }
+        }
 
 
         public BMICalculator()
@@ -79,13 +94,13 @@ namespace Assignment5_300936445
         {
             if (MetricRadioButton.Checked)
             {
-                double result = weight / Math.Pow(height, 2);
-                resultTextBox.Text = string.Format("{0:f}",result);
+                this.RESULT = weight / Math.Pow(height, 2);
+                resultTextBox.Text = string.Format("{0:f}",RESULT);
             }
             else
             {
-                double result = (weight*703) / Math.Pow(height, 2);
-                resultTextBox.Text = string.Format("{0:f}", result);
+                this.RESULT = (weight*703) / Math.Pow(height, 2);
+                resultTextBox.Text = string.Format("{0:f}", this.RESULT);
             }
         }
 
@@ -141,6 +156,7 @@ namespace Assignment5_300936445
             HeightTextBox.Clear();
             WeightTextBox.Clear();
             resultTextBox.Clear();
+            BMIProgressBar.Hide();
         }
 
         /// <summary>
@@ -154,6 +170,28 @@ namespace Assignment5_300936445
             double height = double.Parse(HeightTextBox.Text);
             double weight = double.Parse(WeightTextBox.Text);
             Calculate_BMI(height, weight);
+
+            if (this.RESULT>30)
+            {
+                BMIProgressBar.Value = BMIProgressBar.Maximum;
+                BMIProgressBar.ForeColor = Color.Red;
+            }
+            else if (this.RESULT>24.9)
+            {
+                BMIProgressBar.Value = (int)this.RESULT;
+                BMIProgressBar.ForeColor = Color.Orange;
+            }
+            else if (this.RESULT>18.5)
+            {
+                BMIProgressBar.Value = (int)this.RESULT;
+                BMIProgressBar.ForeColor = Color.Green;
+            }
+            else
+            {
+                BMIProgressBar.Value = (int)this.RESULT;
+                BMIProgressBar.ForeColor = Color.LightGreen;
+            }
+            BMIProgressBar.Show();
         }
     }
 }
