@@ -13,7 +13,7 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.4 - Added the HeightTextBox_KeyPress method which limits user's input
+ * Version: 0.5 - Added the reset method which clears the form 
  */
 
 namespace Assignment5_300936445
@@ -108,6 +108,39 @@ namespace Assignment5_300936445
                 return;
             }
             e.Handled = true;
+        }
+
+        /// <summary>
+        /// This is the WeightTextBox_KeyPress method which limits user's input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int keyValue = e.KeyChar;
+
+            if ((keyValue == BACKSPACE) || ((keyValue >= ZERO) && (keyValue <= NINE)))
+            {
+                return;
+            }
+
+            if ((keyValue == DECIMAL_PONT) && (WeightTextBox.Text.IndexOf(".") == NOT_FOUND))
+            {
+                return;
+            }
+            e.Handled = true;
+
+        }
+        /// <summary>
+        /// This is the reset method which clears the form whenever the click button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            HeightTextBox.Clear();
+            WeightTextBox.Clear();
+            resultTextBox.Clear();
         }
     }
 }

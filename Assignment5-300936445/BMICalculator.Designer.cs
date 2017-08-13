@@ -154,6 +154,7 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(87, 38);
             this.WeightTextBox.TabIndex = 7;
+            this.WeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WeightTextBox_KeyPress);
             // 
             // resultTextBox
             // 
@@ -192,6 +193,7 @@
             this.ResetButton.TabIndex = 11;
             this.ResetButton.Text = "Clear";
             this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // HeightUnitLabel
             // 
