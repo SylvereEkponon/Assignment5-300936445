@@ -144,6 +144,7 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(87, 38);
             this.HeightTextBox.TabIndex = 6;
+            this.HeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HeightTextBox_KeyPress);
             // 
             // WeightTextBox
             // 

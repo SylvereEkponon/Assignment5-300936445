@@ -13,13 +13,22 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.3 - Added the MetricRadioButton_CheckedChanged method
+ * Version: 0.4 - Added the HeightTextBox_KeyPress method which limits user's input
  */
 
 namespace Assignment5_300936445
 {
     public partial class BMICalculator : Form
     {
+        //PRIVATE CONSTANCES
+        private const int BACKSPACE = 8;
+        private const int DECIMAL_PONT = 46;
+        private const int ZERO = 48;
+        private const int NINE = 57;
+        private const int NOT_FOUND = -1;
+
+
+
         public BMICalculator()
         {
             InitializeComponent();
@@ -61,7 +70,11 @@ namespace Assignment5_300936445
                 WeightUnitLabel.Text = "Pounds";
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="weight"></param>
         private void Calculate_BMI (double height, double weight)
         {
             if (MetricRadioButton.Checked)
@@ -74,6 +87,27 @@ namespace Assignment5_300936445
                 double result = (weight*703) / Math.Pow(height, 2);
                 resultTextBox.Text = Convert.ToString(result);
             }
+        }
+
+        /// <summary>
+        /// This is the HeightTextBox_KeyPress method which limits user's input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int keyValue = e.KeyChar;
+
+            if ((keyValue==BACKSPACE)||((keyValue>=ZERO)&&(keyValue<=NINE)))
+            {
+                return;
+            }
+
+            if ((keyValue == DECIMAL_PONT) && (HeightTextBox.Text.IndexOf(".")==NOT_FOUND))
+            {
+                return;
+            }
+            e.Handled = true;
         }
     }
 }
