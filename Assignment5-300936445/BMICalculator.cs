@@ -13,7 +13,7 @@ using System.Windows.Forms;
  * Student ID: 300936445
  * Date: August 2, 2017
  * Description: BMI Calculator using windows forms and UI Controls
- * Version: 0.8 - Added the progress bar to the form and refactored the CalculateBMIButton_Click method 
+ * Version: 0.9 - Refactored the CalculateBMIButton_click method
  */
 
 namespace Assignment5_300936445
@@ -106,6 +106,7 @@ namespace Assignment5_300936445
 
         /// <summary>
         /// This is the HeightTextBox_KeyPress method which limits user's input
+        /// Ref:https://www.codeproject.com/Tips/841727/How-to-Limit-TextBox-Entries-to-Decimal-or-Integer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,21 +168,32 @@ namespace Assignment5_300936445
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            double height = double.Parse(HeightTextBox.Text);
-            double weight = double.Parse(WeightTextBox.Text);
-            Calculate_BMI(height, weight);
+            if (_checked())
+            {
+                double height = double.Parse(HeightTextBox.Text);
+                double weight = double.Parse(WeightTextBox.Text);
+                Calculate_BMI(height, weight);
+                this._bmiProgressBar();
+            }
 
-            if (this.RESULT>30)
+           
+        }
+        /// <summary>
+        /// This is the private _bmiProgressBar method
+        /// </summary>
+        private void _bmiProgressBar()
+        {
+            if (this.RESULT > 30)
             {
                 BMIProgressBar.Value = BMIProgressBar.Maximum;
                 BMIProgressBar.ForeColor = Color.Red;
             }
-            else if (this.RESULT>24.9)
+            else if (this.RESULT > 24.9)
             {
                 BMIProgressBar.Value = (int)this.RESULT;
                 BMIProgressBar.ForeColor = Color.Orange;
             }
-            else if (this.RESULT>18.5)
+            else if (this.RESULT > 18.5)
             {
                 BMIProgressBar.Value = (int)this.RESULT;
                 BMIProgressBar.ForeColor = Color.Green;
@@ -192,6 +204,20 @@ namespace Assignment5_300936445
                 BMIProgressBar.ForeColor = Color.LightGreen;
             }
             BMIProgressBar.Show();
+        }
+
+        /// <summary>
+        /// This is the private _checked()
+        /// it returns true only if HeightTextBox.Text and WeightTextBox.Text are not empty
+        /// </summary>
+        /// <returns>tue</returns>
+        private bool _checked()
+        {
+            if ((HeightTextBox.Text=="")||(WeightTextBox.Text==""))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

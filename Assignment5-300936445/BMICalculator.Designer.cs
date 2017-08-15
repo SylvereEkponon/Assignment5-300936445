@@ -41,9 +41,9 @@
             this.HeightUnitLabel = new System.Windows.Forms.Label();
             this.WeightUnitLabel = new System.Windows.Forms.Label();
             this.ResultLabel = new System.Windows.Forms.Label();
+            this.BMIProgressBar = new System.Windows.Forms.ProgressBar();
             this.HeaderLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Headerlabel = new System.Windows.Forms.Label();
-            this.BMIProgressBar = new System.Windows.Forms.ProgressBar();
             this.BMICalculatorLayoutPanel.SuspendLayout();
             this.HeaderLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -241,6 +241,16 @@
             this.ResultLabel.Text = "Result";
             this.ResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // BMIProgressBar
+            // 
+            this.BMICalculatorLayoutPanel.SetColumnSpan(this.BMIProgressBar, 3);
+            this.BMIProgressBar.Location = new System.Drawing.Point(3, 288);
+            this.BMIProgressBar.Maximum = 50;
+            this.BMIProgressBar.Name = "BMIProgressBar";
+            this.BMIProgressBar.Size = new System.Drawing.Size(279, 19);
+            this.BMIProgressBar.TabIndex = 14;
+            this.BMIProgressBar.Visible = false;
+            // 
             // HeaderLayoutPanel
             // 
             this.HeaderLayoutPanel.ColumnCount = 1;
@@ -265,16 +275,6 @@
             this.Headerlabel.Size = new System.Drawing.Size(239, 18);
             this.Headerlabel.TabIndex = 0;
             this.Headerlabel.Text = "Body Mass Index Calculator";
-            // 
-            // BMIProgressBar
-            // 
-            this.BMICalculatorLayoutPanel.SetColumnSpan(this.BMIProgressBar, 3);
-            this.BMIProgressBar.Location = new System.Drawing.Point(3, 288);
-            this.BMIProgressBar.Maximum = 50;
-            this.BMIProgressBar.Name = "BMIProgressBar";
-            this.BMIProgressBar.Size = new System.Drawing.Size(279, 19);
-            this.BMIProgressBar.TabIndex = 14;
-            this.BMIProgressBar.Visible = false;
             // 
             // BMICalculator
             // 
